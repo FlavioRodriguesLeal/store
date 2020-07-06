@@ -17,6 +17,13 @@ if [ $(id -u) -eq 0 ]; then
 		echo "Erro ao parar o container mongodb-store"
 	fi
 
+		docker rm mongodb-store
+	if [ $? -eq 0 ]; then
+		echo "Parando o container mongodb-store"
+	else
+		echo "Erro ao parar o container mongodb-store"
+	fi
+
 	docker rm legalboxplus_busca_base
 	if [ $? -eq 0 ]; then
 		echo "Removendo o container store-api"
@@ -40,9 +47,9 @@ if [ $(id -u) -eq 0 ]; then
 
 	docker run -d --name mongodb-store --network store-network -p 27017:27017 -e MONGODB_USERNAME=admin -e MONGODB_PASSWORD=123456 -e MONGODB_DATABASE=store bitnami/mongodb:latest
 	if [ $? -eq 0 ]; then
-		echo "Construindo container store-api"
+		echo "Construindo container mongodb-store"
 	else
-		echo "Erro ao construir o container store-api"
+		echo "Erro ao construir o container mongodb-store"
 	fi
 
 	docker build --no-cache -t store-api -f Dockerfile-store-api .
