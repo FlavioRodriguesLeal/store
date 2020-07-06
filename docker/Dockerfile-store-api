@@ -9,7 +9,7 @@ RUN apt-get update && apt-get upgrade -y \
     && echo "Clonando o app" \
     && cd home && mkdir data \
     && cd data \
-    && git clone --single-branch --branch hotfix https://github.com/FlavioRodriguesLeal/store.git store
+    && git clone --single-branch --branch master https://github.com/FlavioRodriguesLeal/store.git store
 
 RUN ls home/data
 
