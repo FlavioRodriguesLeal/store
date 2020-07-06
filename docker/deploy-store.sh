@@ -24,14 +24,14 @@ if [ $(id -u) -eq 0 ]; then
 		echo "Erro ao parar o container mongodb-store"
 	fi
 
-	docker rm legalboxplus_busca_base
+	docker rm store-api
 	if [ $? -eq 0 ]; then
 		echo "Removendo o container store-api"
 	else
 		echo "Erro remover o container store-api"
 	fi
 
-	docker rmi legalboxplus_busca_base
+	docker rmi store-api
 	if [ $? -eq 0 ]; then
 		echo "Removendo a imagem do store-api"
 	else
@@ -59,7 +59,7 @@ if [ $(id -u) -eq 0 ]; then
 		echo "Erro ao construir o container store-api"
 	fi
 store-api
-	docker run -d -p 8090:8090 --name legalboxplus_busca_base --network store-network store-api
+	docker run -d -p 8070:8090 --name store-api --network store-network store-api
 	if [ $? -eq 0 ]; then
     echo "-------- Run store-api ---------"
   else
