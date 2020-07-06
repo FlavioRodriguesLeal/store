@@ -1,0 +1,20 @@
+# Dockerfile
+FROM adoptopenjdk/openjdk11
+
+
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y git gradle \
+    && echo "Criando diretório da aplicação" \
+    \
+    && echo "Clonando o app" \
+    && cd home && mkdir data \
+    && cd data \
+    && git clone --single-branch --branch master https://github.com/FlavioRodriguesLeal/store.git store
+
+RUN ls home/data
+
+EXPOSE 8090
+
+ENTRYPOINT ["./home/data/store/gradlew","bootRun","-b","/home/data/store/build.gradle"]
+
+
