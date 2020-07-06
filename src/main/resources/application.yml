@@ -1,0 +1,31 @@
+
+# ===================================================================
+# Spring Boot configuration.
+# Spring
+# ===================================================================
+
+spring:
+  application:
+    name: store
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+  jackson:
+    default-property-inclusion: NON_NULL
+  data:
+    mongodb:
+      primary:
+        uri: mongodb-store:27018
+        username: admin
+        password: 123456
+        database: store
+
+
+# ===================================================================
+# Configuração de porta do servidor
+# ===================================================================
+
+server:
+  host: localhost
+  port: 8090
+
+
