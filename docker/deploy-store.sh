@@ -45,7 +45,7 @@ if [ $(id -u) -eq 0 ]; then
 		echo "Não foi criado a network store-network"
 	fi
 
-	docker run -d --name mongodb-store --network store-network -p 27017:27017 -e MONGODB_USERNAME=admin -e MONGODB_PASSWORD=123456 -e MONGODB_DATABASE=store bitnami/mongodb:latest
+	docker run -d --name mongodb-store --network store-network -p 27018:27017 -e MONGODB_USERNAME=admin -e MONGODB_PASSWORD=123456 -e MONGODB_DATABASE=store bitnami/mongodb:latest
 	if [ $? -eq 0 ]; then
 		echo "Construindo container mongodb-store"
 	else

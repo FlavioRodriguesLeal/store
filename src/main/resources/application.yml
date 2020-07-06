@@ -14,7 +14,7 @@ spring:
   data:
     mongodb:
       primary:
-        uri: mongodb-store:27017
+        uri: mongodb-store:27018
         username: admin
         password: 123456
         database: store
