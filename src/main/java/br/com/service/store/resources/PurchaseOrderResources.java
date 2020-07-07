@@ -33,7 +33,7 @@ public class PurchaseOrderResources {
 
         if(id == null) throw new FaultException(HttpStatus.UNPROCESSABLE_ENTITY, "Purchase ID was not informed.");
 
-        PurchaseOrderDTO purchaseOrderDTO = purchaseOrderService.getPurchaseOrderById(id);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        getPurchaseOrderById(id);
+        PurchaseOrderDTO purchaseOrderDTO = purchaseOrderService.getPurchaseOrderById(id);
 
         return new JsonEnvelop.Builder<PurchaseOrderDTO>()
                 .statusAndStatusCode(HttpStatus.OK)
